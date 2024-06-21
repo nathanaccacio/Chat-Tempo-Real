@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% block content %}
+<!-- Formulário feito para criar um nome, criar uma sala e entrar numa sala -->
+<!-- É necessário porque quando o usuario clicar para enviar os dados de entrada, vamos receber esses dados no backend -->
+
+<form method="post" class="buttons">
+  <h3>Entrar na Sala de Bate Papo</h3>
+  <div>
+    <label>Nome:</label>
+    <input
+      type="text"
+      placeholder="Escolha um nome"
+      name="name"
+      value="{{name}}"
+    />
+  </div>
+  <div class="join">
+    <input type="text" placeholder="Código da Sala" name="code" value="{{code}}" />
+    <button type="submit" name="join">Entrar na Sala</button>
+  </div>
+  <button type="submit" name="create" class="create-btn">Criar uma Sala</button>
+  {% if error %}
+  <ul>
+    <li>{{error}}</li>
+  </ul>
+  {% endif %}
+</form>
+{% endblock %}
